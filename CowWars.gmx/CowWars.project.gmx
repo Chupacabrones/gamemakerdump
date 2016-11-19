@@ -21,32 +21,39 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Helpers">
+      <script>scripts\get_temp_obj.gml</script>
       <script>scripts\game_input.gml</script>
-      <scripts name="State">
-        <script>scripts\state_init.gml</script>
-      </scripts>
+      <script>scripts\state_machine.gml</script>
     </scripts>
     <scripts name="Game">
       <scripts name="State">
         <script>scripts\st_game_title.gml</script>
+        <script>scripts\st_game_play.gml</script>
+        <script>scripts\set_game_state.gml</script>
+        <script>scripts\on_end_turn.gml</script>
       </scripts>
     </scripts>
     <scripts name="Cart">
-      <script>scripts\st_cart_action.gml</script>
+      <script>scripts\st_cart_active.gml</script>
+      <script>scripts\st_cart_inactive.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_dirt</object>
-    <object>objects\obj_cart</object>
     <objects name="Game">
-      <object>objects\obj_title_menu</object>
+      <object>objects\Input</object>
+      <object>objects\TitleMenu</object>
       <object>objects\GameState</object>
+      <object>objects\obj_temp</object>
     </objects>
     <objects name="Parent">
       <object>objects\obj_StaticParent</object>
       <object>objects\obj_DynamicParent</object>
     </objects>
-    <object>objects\obj_cow</object>
+    <objects name="Level">
+      <object>objects\obj_cart</object>
+      <object>objects\obj_cow</object>
+      <object>objects\obj_dirt</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_title</room>

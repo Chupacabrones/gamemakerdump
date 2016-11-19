@@ -1,3 +1,16 @@
+#define state_machine
+/// state_scripts() N/A
+/***
+
+
+*/
+
+
+
+
+
+
+
 #define state_init
 /// state_init(state);
 state = argument0;

@@ -27,9 +27,9 @@
             <kind>1</kind>
             <string>/// initialize cart
 
-
+cart_id = 0;
 cart_speed = 2;
-cart_direction = -1;
+cart_direction = 1;
 
 vx = 0;
 theta = 90; // the angle of the arm.
@@ -41,40 +41,17 @@ arm_length = 86;
 
 cart_power = 400;
 cart_power_speed = 10;
-cart_power_max = 1000;
+cart_power_max = 5000;
 cart_power_min = 100;
 
 image_xscale = sign(cart_direction);
-state_init(st_cart_action);
+state_init(st_cart_active);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// game input
-
-game_input();
-</string>
-          </argument>
-        </arguments>
-      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -119,12 +96,19 @@ state_process();
             <string>/// display variables
 draw_set_color(c_white);
 
-var xx = 5;
+var xx = 5; // cart 1 x
 var yy = string_height("|");
+
+if (cart_id == 2) {
+    xx = room_width - xx - string_width("player: 0000"); // cart 2
+}
+
+// draw player name
+draw_text(xx, yy * 1, "Player: " + string(cart_id));
 // angle
-draw_text(xx, yy, "Angle: " + string(theta));
+draw_text(xx, yy * 2, "Angle: " + string(theta));
 // power
-draw_text(xx, yy * 2, "Power: " + string(cart_power));
+draw_text(xx, yy * 3, "Power: " + string(cart_power));
 </string>
           </argument>
         </arguments>
@@ -219,8 +203,8 @@ draw_point(x + xx, y + yy);
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
     <point>0,0</point>
-    <point>64,0</point>
-    <point>64,64</point>
-    <point>0,64</point>
+    <point>32,0</point>
+    <point>32,32</point>
+    <point>0,32</point>
   </PhysicsShapePoints>
 </object>
