@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_cow</sound>
+    <sound>sound\snd_gunsplode</sound>
+    <sound>sound\snd_swat</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Level">
       <sprite>sprites\spr_dirt</sprite>
@@ -14,6 +18,7 @@
       <sprite>sprites\spr_cart</sprite>
       <sprite>sprites\spr_cart_arm</sprite>
     </sprites>
+    <sprite>sprites\spr_penguin</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_dirt</background>
@@ -29,13 +34,21 @@
       <scripts name="State">
         <script>scripts\st_game_title.gml</script>
         <script>scripts\st_game_play.gml</script>
+        <script>scripts\st_turn_transition.gml</script>
+        <script>scripts\st_game_over.gml</script>
         <script>scripts\set_game_state.gml</script>
-        <script>scripts\on_end_turn.gml</script>
       </scripts>
+      <script>scripts\on_room_create.gml</script>
     </scripts>
     <scripts name="Cart">
-      <script>scripts\st_cart_active.gml</script>
-      <script>scripts\st_cart_inactive.gml</script>
+      <scripts name="State">
+        <script>scripts\st_cart_active.gml</script>
+        <script>scripts\st_cart_inactive.gml</script>
+        <script>scripts\st_cart_start.gml</script>
+        <script>scripts\st_cart_end.gml</script>
+        <script>scripts\st_cart_damage.gml</script>
+        <script>scripts\st_cart_gameover.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -44,6 +57,7 @@
       <object>objects\TitleMenu</object>
       <object>objects\GameState</object>
       <object>objects\obj_temp</object>
+      <object>objects\ViewFollower</object>
     </objects>
     <objects name="Parent">
       <object>objects\obj_StaticParent</object>
@@ -53,6 +67,7 @@
       <object>objects\obj_cart</object>
       <object>objects\obj_cow</object>
       <object>objects\obj_dirt</object>
+      <object>objects\obj_penguin</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -7,7 +7,7 @@ var paxis = (Input.power_down - Input.power_up);
 
 if (cart_direction > 0) {
     // facing left to right
-    theta = clamp(theta + yaxis, theta_min, theta_max);
+    theta = clamp(theta - yaxis, theta_min, theta_max);
 } else {
     // facing right to left
     theta = clamp(theta + yaxis, theta_min + 90, theta_max + 90);
@@ -30,6 +30,8 @@ if (state_time > 5 && Input.fire) {
         physics_apply_impulse(phy_position_x, phy_position_y, ximp, yimp);
         physics_apply_angular_impulse(2 * other.cart_direction);
     }
-    on_end_turn(cart_id);
+    audio_play_sound(snd_gunsplode, 10, 0);
+    audio_play_sound(snd_cow, 10, 0);
+    state_switch(st_cart_end); // end turn.
 }
 
