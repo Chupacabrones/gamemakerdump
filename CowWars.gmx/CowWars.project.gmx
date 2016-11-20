@@ -44,6 +44,7 @@
         <script>scripts\set_game_state.gml</script>
       </scripts>
       <script>scripts\on_room_create.gml</script>
+      <script>scripts\generate_mountain.gml</script>
     </scripts>
     <scripts name="Cart">
       <scripts name="State">
@@ -80,6 +81,7 @@
   <rooms name="rooms">
     <room>rooms\rm_title</room>
     <room>rooms\rm_game</room>
+    <room>rooms\rm_test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

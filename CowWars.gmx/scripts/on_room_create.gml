@@ -16,3 +16,7 @@ with(obj_cart) {
 for (var i = 0; i < irandom(20); i++) {
     instance_create(x, y, obj_cloud);
 }
+
+
+// generate mountain
+generate_mountain();
