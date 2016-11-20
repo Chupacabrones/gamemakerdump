@@ -11,6 +11,7 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="Level">
+      <sprite>sprites\spr_cloud</sprite>
       <sprite>sprites\spr_dirt</sprite>
     </sprites>
     <sprite>sprites\spr_cow</sprite>
@@ -22,6 +23,10 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bg_dirt</background>
+    <background>background\bg_sky</background>
+    <background>background\fg_grass1</background>
+    <background>background\fg_grass2</background>
+    <background>background\bg_cloud</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -68,6 +73,8 @@
       <object>objects\obj_cow</object>
       <object>objects\obj_dirt</object>
       <object>objects\obj_penguin</object>
+      <object>objects\obj_background</object>
+      <object>objects\obj_cloud</object>
     </objects>
   </objects>
   <rooms name="rooms">

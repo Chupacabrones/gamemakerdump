@@ -11,3 +11,8 @@ with(obj_cart) {
         state_switch(st_cart_inactive);
     }
 }
+
+// generate clouds
+for (var i = 0; i < irandom(20); i++) {
+    instance_create(x, y, obj_cloud);
+}
