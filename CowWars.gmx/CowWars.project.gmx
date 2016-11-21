@@ -54,6 +54,7 @@
         <script>scripts\st_cart_end.gml</script>
         <script>scripts\st_cart_damage.gml</script>
         <script>scripts\st_cart_gameover.gml</script>
+        <script>scripts\st_cart_firing.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -64,6 +65,7 @@
       <object>objects\GameState</object>
       <object>objects\obj_temp</object>
       <object>objects\ViewFollower</object>
+      <object>objects\Meter</object>
     </objects>
     <objects name="Parent">
       <object>objects\obj_StaticParent</object>

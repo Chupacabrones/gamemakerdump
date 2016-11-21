@@ -20,18 +20,6 @@ cart_power = clamp(cart_power + paxis * cart_power_speed, cart_power_min, cart_p
 
 // projectile launch
 if (state_time > 5 && Input.fire) {
-    var ximp = lengthdir_x(cart_power, theta);
-    var yimp = lengthdir_y(cart_power, theta);
-    var xx = lengthdir_x(arm_length, theta);
-    var yy = lengthdir_y(arm_length, theta);
-    
-    with(instance_create(phy_position_x + xx, phy_position_y + yy, obj_cow)) {
-        image_xscale = other.cart_direction;
-        physics_apply_impulse(phy_position_x, phy_position_y, ximp, yimp);
-        physics_apply_angular_impulse(2 * other.cart_direction);
-    }
-    audio_play_sound(snd_gunsplode, 10, 0);
-    audio_play_sound(snd_cow, 10, 0);
-    state_switch(st_cart_end); // end turn.
+    state_switch(st_cart_firing);
 }
 

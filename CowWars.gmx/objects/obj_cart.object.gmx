@@ -40,7 +40,7 @@ theta_max = 90;
 
 arm_length = 86;
 
-cart_power = 400;
+cart_power = 4000;
 cart_power_speed = 10;
 cart_power_max = 5000;
 cart_power_min = 100;
@@ -112,10 +112,13 @@ if (cart_id == 2) {
 draw_text(xx, yy * 1, "Player: " + string(cart_id));
 // angle
 draw_text(xx, yy * 2, "Angle: " + string(cart_theta));
-// power
-draw_text(xx, yy * 3, "Power: " + string(cart_power));
+
 // Health
-draw_text(xx, yy * 4, "Health: " + string(cart_health));
+var hbx1 = xx;
+var hby1 = yy * 3 + 5;
+var hbx2 = xx + 100;
+var hby2 = hby1 + yy + 5;
+draw_healthbar(hbx1, hby1, hbx2, hby2, cart_health, c_black, c_red, c_lime, 0, true, true)
 </string>
           </argument>
         </arguments>
@@ -230,7 +233,7 @@ if (state == st_cart_start) {
 if (state == st_cart_gameover &amp;&amp; cart_health &gt; 0) {
     var text = "Player " + string(cart_id) + " Wins!";
     var xx = (room_width / 2);
-    var yy = (room_height / 2);
+    var yy = view_yview[0] + (view_hview[0] / 2);
     //draw player turn text.
     draw_set_color(c_white);
     draw_set_halign(fa_center);
