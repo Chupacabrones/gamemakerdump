@@ -1,6 +1,12 @@
 /// on_room_create();
 
 
+// set global weather
+globalvar wind_angle;
+globalvar wind_power;
+global.wind_angle = 0;
+global.wind_power = 0;
+
 // update the gamestate carts array
 with(obj_cart) {
     GameState.carts[cart_id] = self;

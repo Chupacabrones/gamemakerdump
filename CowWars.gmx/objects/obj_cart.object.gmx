@@ -95,6 +95,7 @@ state_process();
           <argument>
             <kind>1</kind>
             <string>/// display variables
+/*
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
@@ -119,6 +120,8 @@ var hby1 = yy * 3 + 5;
 var hbx2 = xx + 100;
 var hby2 = hby1 + yy + 5;
 draw_healthbar(hbx1, hby1, hbx2, hby2, cart_health, c_black, c_red, c_lime, 0, true, true)
+
+*/
 </string>
           </argument>
         </arguments>

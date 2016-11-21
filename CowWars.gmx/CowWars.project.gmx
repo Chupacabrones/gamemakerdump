@@ -20,6 +20,7 @@
       <sprite>sprites\spr_cart_arm</sprite>
     </sprites>
     <sprite>sprites\spr_penguin</sprite>
+    <sprite>sprites\spr_square</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_dirt</background>
@@ -41,10 +42,11 @@
         <script>scripts\st_game_play.gml</script>
         <script>scripts\st_turn_transition.gml</script>
         <script>scripts\st_game_over.gml</script>
-        <script>scripts\set_game_state.gml</script>
       </scripts>
       <script>scripts\on_room_create.gml</script>
       <script>scripts\generate_mountain.gml</script>
+      <script>scripts\set_game_state.gml</script>
+      <script>scripts\apply_weather.gml</script>
     </scripts>
     <scripts name="Cart">
       <scripts name="State">
@@ -56,6 +58,7 @@
         <script>scripts\st_cart_gameover.gml</script>
         <script>scripts\st_cart_firing.gml</script>
       </scripts>
+      <script>scripts\launch_cow.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -78,7 +81,9 @@
       <object>objects\obj_penguin</object>
       <object>objects\obj_background</object>
       <object>objects\obj_cloud</object>
+      <object>objects\obj_gui</object>
     </objects>
+    <object>objects\obj_square</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_title</room>

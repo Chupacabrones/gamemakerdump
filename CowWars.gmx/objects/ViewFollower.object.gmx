@@ -28,8 +28,8 @@
             <string>/// set initial view
 
 // position in center bottom half of the screen
-x = room_width / 2;
-starty = room_height * ( 3 / 4 );
+x = view_wview[0] / 2;
+starty = view_yview[0] + view_hview[0] / 2;
 
 y = starty;
 </string>
