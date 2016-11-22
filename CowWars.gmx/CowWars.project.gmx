@@ -60,7 +60,13 @@
       </scripts>
       <script>scripts\launch_cow.gml</script>
     </scripts>
+    <script>scripts\get_obj.gml</script>
+    <script>scripts\create_obj.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_12</font>
+    <font>fonts\font_36</font>
+  </fonts>
   <objects name="objects">
     <objects name="Game">
       <object>objects\Input</object>
@@ -78,6 +84,7 @@
       <object>objects\obj_cart</object>
       <object>objects\obj_cow</object>
       <object>objects\obj_dirt</object>
+      <object>objects\obj_floor</object>
       <object>objects\obj_penguin</object>
       <object>objects\obj_background</object>
       <object>objects\obj_cloud</object>

@@ -56,6 +56,28 @@ effect_create_above(ef_explosion, phy_position_x, phy_position_y, 2, c_red);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// transition player turn
+set_game_state(st_turn_transition);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -75,7 +97,7 @@ effect_create_above(ef_explosion, phy_position_x, phy_position_y, 2, c_red);
           <argument>
             <kind>1</kind>
             <string>/// check destroy timer
-if (destroy_timer &gt; 60) {
+if (destroy_timer &gt; 2) {
     audio_play_sound(snd_swat, 10, 0);
     instance_destroy();
 }
@@ -105,6 +127,30 @@ var xforce = lengthdir_x(global.wind_power, global.wind_angle);
 var yforce = lengthdir_y(global.wind_power, global.wind_angle);
 
 physics_apply_force(phy_position_x, phy_position_y, xforce, yforce);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_floor">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// inc destroy timer
+destroy_timer ++;
 </string>
           </argument>
         </arguments>
@@ -208,7 +254,7 @@ instance_destroy();
             <kind>1</kind>
             <string>/// destroy if outside room and outside x-axis
 
-if (phy_position_x &lt; 0 || phy_position_y &gt; room_width) {
+if (phy_position_x &lt; 0 || phy_position_x &gt; room_width) {
     instance_destroy();
 }
 </string>

@@ -1,6 +1,5 @@
 /// on_room_create();
 
-
 // set global weather
 globalvar wind_angle;
 globalvar wind_power;

@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -27,16 +27,17 @@
             <kind>1</kind>
             <string>/// draw the GUI!
 draw_set_color(c_black);
-draw_rectangle(0, 860, room_width, 960, false);
+draw_rectangle(0, view_yview[1], view_wview[1], view_yview[1] + view_hview[1], false);
 
+draw_set_font(font_12);
 draw_set_color(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
 var lineheight = string_height("|");
 var xcorner = 0;
-var ycorner = 860;
-var xcenter = room_width / 2;
+var ycorner = view_yview[1] + 5;
+var xcenter = view_wview[1] / 2;
 
 with (obj_cart) {
     var xx = xcorner + 5; // cart 1 x
@@ -44,18 +45,18 @@ with (obj_cart) {
     var yy = lineheight;
     
     if (cart_id == 2) {
-        xx = room_width - xx - string_width("player: 0000"); // cart 2
+        xx = view_wview[1] - xx - string_width("player: 0000"); // cart 2
         cart_theta = 180 - theta;
     }
     
     // draw player name
-    draw_text(xx, ycorner + yy * 1, "Player: " + string(cart_id));
+    draw_text(xx, ycorner + yy * 0, "Player: " + string(cart_id));
     // angle
-    draw_text(xx, ycorner + yy * 2, "Angle: " + string(cart_theta));
+    draw_text(xx, ycorner + yy * 1, "Angle: " + string(cart_theta));
     
     // Health
     var hbx1 = xx;
-    var hby1 = ycorner + yy * 3 + 5;
+    var hby1 = ycorner + yy * 2 + 5;
     var hbx2 = xx + 100;
     var hby2 = hby1 + yy + 5;
     draw_healthbar(hbx1, hby1, hbx2, hby2, cart_health, c_black, c_red, c_lime, 0, true, true)
@@ -70,6 +71,7 @@ windtext = "Wind: " + windtext + ", " + string(global.wind_power);
 draw_text(xcenter - (string_width(windtext) / 2), ycorner + lineheight, windtext);
 
 //show_message("X: " + string(xcorner) + " Y: " + string(ycorner));
+
 </string>
           </argument>
         </arguments>

@@ -28,8 +28,8 @@
             <string>/// init state
 
 
-
-
+start_text_active = true;
+blink_time = 0;
 </string>
           </argument>
         </arguments>
@@ -87,6 +87,35 @@ for (var i = 0; i &lt;= 7; i++) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// blink_time
+if (blink_time &gt; room_speed) {
+    start_text_active = !start_text_active;
+    blink_time = 0;
+}
+
+blink_time ++;
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -106,22 +135,36 @@ for (var i = 0; i &lt;= 7; i++) {
           <argument>
             <kind>1</kind>
             <string>/// Draw menu
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+draw_set_color(c_white);
 
-var text = "ENTER to Start";
+var start_text = "ENTER to Start";
+var directions_text = "CONTROLS: L/R arrows move, U/D arrows angle, SPACE launch, ESC quit";
+var title_text = "Cow Wars";
 
-var yoffset = string_height(text);
+// consts
 var cx = (room_width / 2);
 var cy = (room_height / 2);
-var tx = cx - (string_width(text) / 2);
-var ty = cy - (yoffset / 2);
+var titley = (room_height / 4);
 
-var directions = "CONTROLS: arrows, spacebar, left shift, right shift";
-var drx = cx - (string_width(directions) / 2);
-var dry = cy + yoffset;
+// draw title
+draw_set_font(font_36);
+draw_text(cx, titley, title_text);
+var lineheight_36 = string_height("|");
 
-draw_set_color(c_white);
-draw_text(tx, ty, text);
-draw_text(drx, dry, directions);
+
+draw_set_font(font_12);
+var lineheight_12 = string_height("|");
+// draw start
+if (start_text_active) {
+    draw_text(cx, titley + lineheight_36, start_text);
+}
+// draw directions
+draw_text(cx, cy, directions_text);
+
+
+
 </string>
           </argument>
         </arguments>
