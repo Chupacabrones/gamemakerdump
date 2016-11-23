@@ -8,7 +8,7 @@
   <parentName>obj_StaticParent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="1" enumb="0">
+    <event eventtype="4" ename="obj_cow">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,14 +25,38 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// splode!
-effect_create_above(ef_explosion, phy_position_x, phy_position_y, 1, c_dkgray);
+            <string>/// fracture into smaller pieces
+var hitdirection = point_direction(other.phy_position_xprevious, other.phy_position_yprevious, other.phy_position_x, other.phy_position_y);
+var hitamount = point_distance(other.phy_position_xprevious, other.phy_position_yprevious, other.phy_position_x, other.phy_position_y);
+var impulse_x = lengthdir_x(hitamount, hitdirection);
+var impulse_y = lengthdir_y(hitamount, hitdirection);
+
+var objsize = 16;
+
+// top left
+with (instance_create(phy_position_x, phy_position_y, obj_dirtx16)) {
+    // collide?
+    physics_apply_impulse(phy_position_x, phy_position_y, impulse_x, impulse_y);
+}
+// top right
+with (instance_create(phy_position_x + objsize, phy_position_y, obj_dirtx16)) {
+    // collide?
+    physics_apply_impulse(phy_position_x, phy_position_y, impulse_x, impulse_y);
+}
+// bottom left
+with (instance_create(phy_position_x, phy_position_y + objsize, obj_dirtx16)) {
+    // collide?
+    physics_apply_impulse(phy_position_x, phy_position_y, impulse_x, impulse_y);
+}
+// bottom right
+with (instance_create(phy_position_x + objsize, phy_position_y + objsize, obj_dirtx16)) {
+    // collide?
+    physics_apply_impulse(phy_position_x, phy_position_y, impulse_x, impulse_y);
+}
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="4" ename="obj_cow">
       <action>
         <libid>1</libid>
         <id>603</id>

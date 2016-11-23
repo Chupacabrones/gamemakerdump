@@ -31,6 +31,11 @@ carts[2] = noone;
 active_cart = 1;
 instance_create(0, 0, Input);
 state_init(st_game_title);
+
+
+// start music
+audio_sound_gain(music_pinkishfloyd, 0.1, 0);
+audio_play_sound(music_pinkishfloyd, 10, true);
 </string>
           </argument>
         </arguments>
