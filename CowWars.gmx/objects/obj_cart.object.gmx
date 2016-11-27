@@ -40,7 +40,7 @@ theta_max = 90;
 
 arm_length = 43;
 
-cart_power = 3000;
+cart_power = 5000;
 cart_power_speed = 10;
 cart_power_max = 5000;
 cart_power_min = 100;

@@ -141,7 +141,7 @@ draw_set_color(c_white);
 
 var start_text = "ENTER to Start";
 var directions_text = "CONTROLS: L/R arrows move, U/D arrows angle, SPACE launch, ESC quit";
-var title_text = "Cow Wars";
+var title_text = "Sausage Wars";
 
 // consts
 var cx = (room_width / 2);
